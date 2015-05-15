@@ -675,13 +675,13 @@ function propagate_advancement_section() {
 		for(advc = 0; advc < current_character.available_advancements; advc++) {
 			if(advc == 0)
 				html += "<h5>Novice</h5>";
-			if(advc == 4)
+			if(advc == 3)
 				html += "<h5>Seasoned</h5>";
-			if(advc == 8)
+			if(advc == 7)
 				html += "<h5>Veteran</h5>";
-			if(advc == 12)
+			if(advc == 11)
 				html += "<h5>Heroic</h5>";
-			if(advc == 16)
+			if(advc == 15)
 				html += "<h5>Legendary</h5>";
 
 			if( current_character.selected_advancements[advc] ) {
