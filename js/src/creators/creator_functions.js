@@ -3,7 +3,7 @@
 	Creative Commons Attribution 4.0 International License.
 */
 
-function propogate_add_mods(selected_modification_list) {
+function propagate_add_mods(selected_modification_list) {
 	modifications_html = "<table>";
 	modifications_html += "<thead><tr>";
 	modifications_html += "<th>&nbsp;</th>";
@@ -72,7 +72,7 @@ function propogate_add_mods(selected_modification_list) {
 
 
 
-function propogate_settings_box() {
+function propagate_settings_box() {
 	current_settings = current_selected_object.get_available_options();
 
 	if(current_settings === Array()) {
@@ -139,7 +139,7 @@ function propogate_settings_box() {
 
 }
 
-function propogate_weapon_mods() {
+function propagate_weapon_mods() {
 	available_links = current_selected_object.get_linked_weapons();
 	weapon_mods_html = "<fieldset><legend>Installed Weapons</legend>";
 	if(available_links.length > 0)
@@ -281,7 +281,7 @@ function propogate_weapon_mods() {
 
 
 
-function propogate_load_list() {
+function propagate_load_list() {
 	current_load_data = localstorage_parse_data();
 	html = "<ul class='list-unstyled'>";
 	for(lsCounter = 0; lsCounter < current_load_data.length; lsCounter++) {
@@ -306,7 +306,7 @@ function propogate_load_list() {
 		bootbox.confirm("Are you sure you want to delete this item?", function(ok_clicked) {
 			if(ok_clicked) {
 				delete_item_from_localstorage(selectedItemIndex);
-				propogate_load_list();
+				propagate_load_list();
 			}
 		});
 
@@ -334,7 +334,7 @@ $(".js-save-item").click( function() {
 
 		if(current_selected_object.item_name != "" && current_selected_object.item_name != "(nameless)") {
 			save_to_localstorage( current_selected_object.export_json() );
-			propogate_load_list();
+			propagate_load_list();
 			bootstrap_alert( "Your " + current_selected_object.object_label+ " has been saved.", "success" );
 		} else {
 			bootstrap_alert( "Please name your " + current_selected_object.object_label+ " before saving", "danger"  );
@@ -383,7 +383,7 @@ $(".js-new-item").click( function() {
 			$(".js-set-name").val("");
 			$(".js-set-description").val("");
 			refresh_creator_page();
-			propogate_load_list();
+			propagate_load_list();
 		}
 	});
 } );
@@ -413,12 +413,12 @@ $(".js-json-code").mousedown( function() {
 
 function refresh_creator_page() {
 	current_selected_object.calculate();
-	current_selected_object.propogate_size_select(".js-select-size");
+	current_selected_object.propagate_size_select(".js-select-size");
 	current_selected_object.create_stats_block(".js-info-stats");
 	current_selected_object.export_bbcode(".js-bb-code");
 	current_selected_object.export_json(".js-json-code");
 
-	propogate_settings_box();
+	propagate_settings_box();
 	setSyncDirty();
 
 	$('.js-set-name').unbind('keyup');
@@ -442,7 +442,7 @@ function refresh_creator_page() {
 
 	if( current_selected_object && current_selected_object.selected_size && current_selected_object.selected_size.size_label ) {
 
-		propogate_add_mods(current_selected_object.available_mods);
+		propagate_add_mods(current_selected_object.available_mods);
 		$('.js-add-mod').unbind('click');
 		$(".js-add-mod").click( function() {
 			current_selected_object.add_mod( $(this).attr("ref") );
@@ -455,7 +455,7 @@ function refresh_creator_page() {
 			refresh_creator_page();
 		});
 
-		propogate_weapon_mods();
+		propagate_weapon_mods();
 		$('.js-add-weapon').unbind('click');
 		$(".js-add-weapon").click( function() {
 			current_selected_object.add_weapon( $(this).attr("ref") );

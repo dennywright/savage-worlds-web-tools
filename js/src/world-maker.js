@@ -615,7 +615,7 @@ table_defs[9] = {
 	)
 };
 
-function propogate_selects() {
+function propagate_selects() {
 	for(table_count = 0; table_count < table_defs.length; table_count++) {
 		html = "";
 		for(field_count = 0; field_count < table_defs[table_count].options.length; field_count++) {
@@ -713,7 +713,7 @@ function rollTable(tableIndex) {
 	}
 }
 
-propogate_selects();
+propagate_selects();
 $(".js-roll-table").click( function() {
 	ref = $(this).attr("ref");
 	rollTable( ref / 1 );

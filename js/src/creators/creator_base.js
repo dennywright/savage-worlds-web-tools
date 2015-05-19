@@ -677,7 +677,7 @@ creator_base.prototype = {
 			return false;
 	},
 
-	propogate_size_select: function(jquery_selector) {
+	propagate_size_select: function(jquery_selector) {
 		if(jquery_selector)
 			jquery_selector = ".js-select-size";
 		selectOptions = "<option value=''>- Select " + this.object_label + " Size -</option>";

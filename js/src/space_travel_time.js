@@ -72,7 +72,7 @@ var distanceList = Array(
 	50
 );
 
-function propogateDistanceOptions() {
+function propagateDistanceOptions() {
 	html = ""
 	for(counter = 0; counter < distanceList.length; counter++) {
 		distanceLabel = distanceList[counter] + " AU";
@@ -83,7 +83,7 @@ function propogateDistanceOptions() {
 	$(".js-select-distance").html(html);
 }
 
-function propogateSpeedOptions() {
+function propagateSpeedOptions() {
 	html = ""
 	for(counter = 0; counter < speedList.length; counter++) {
 		speedLabel = speedList[counter] + " G";

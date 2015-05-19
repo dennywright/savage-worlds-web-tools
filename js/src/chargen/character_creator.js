@@ -10,7 +10,7 @@ var current_gear_search = "";
 
 
 
-function propogate_chargen_settings_box() {
+function propagate_chargen_settings_box() {
 	current_settings = current_character.get_available_options();
 
 	if(current_settings === Array()) {
@@ -418,7 +418,7 @@ function display_remaining_skill_points(selector_name) {
 }
 
 
-function propogate_chargen_section() {
+function propagate_chargen_section() {
 // Fill in Fluff Section
 //	$(".js-chargen-name").val(current_character.name);
 	$(".js-chargen-name").unbind("keyup");
@@ -1308,7 +1308,7 @@ function propagate_gear_section() {
 
 
 	/* MODAL */
-	// Now Propogate the Available Gear in the Modal
+	// Now Propagate the Available Gear in the Modal
 	gear_book_dd = Array();
 	gear_general_dd = Array();
 	gear_class_dd = Array();
@@ -1457,7 +1457,7 @@ function propagate_gear_section() {
 	});
 
 
-	// Now Propogate the Available Gear in the Modal
+	// Now Propagate the Available Gear in the Modal
 	make_gear_available_list();
 
 	html = "<h4 class=\"text-right\">Current Wealth: \$" + current_character.current_funds + "</h4>";
@@ -1737,7 +1737,7 @@ function init_main_buttons() {
 
 			localStorage["com.jdg.swwt.characters"] = JSON.stringify(current_characters);
 
-			propogate_chargen_load_list();
+			propagate_chargen_load_list();
 
 			bootstrap_alert( "Your character has been saved.", "success" );
 		} else {
@@ -1780,7 +1780,7 @@ function load_selected_character() {
 }
 
 
-function propogate_chargen_load_list() {
+function propagate_chargen_load_list() {
 	try {
 		current_load_data = JSON.parse(localStorage["com.jdg.swwt.characters"]);
 	}
@@ -1837,7 +1837,7 @@ function propogate_chargen_load_list() {
 					}
 				}
 
-				propogate_chargen_load_list();
+				propagate_chargen_load_list();
 			}
 		});
 
@@ -1969,11 +1969,11 @@ function refresh_chargen_page(no_full_refresh, no_calculate) {
 
 	localStorage["com.jdg.swwt.tmp.current_character"] = current_character.export_json(".js-chargen-json-code");
 
-	propogate_chargen_settings_box();
+	propagate_chargen_settings_box();
 
-	propogate_chargen_load_list();
+	propagate_chargen_load_list();
 
-	propogate_chargen_section();
+	propagate_chargen_section();
 
 	// only propagate the character section since it's a non-fluff change
 	// this is because it was very slow on a Raspberry Pi
