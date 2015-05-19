@@ -1,6 +1,5 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
-
 		less: {
 			development: {
 				options: {
@@ -22,11 +21,10 @@ module.exports = function(grunt) {
 					sourceMapName: 'js/sourcemap.map'
 				},
 				files: {
-					'js/swwt.min.js' : ['js/src/*.js', 'js/src/chargen/*.js', 'js/src/extras/*.js', 'js/src/creators/*.js']
+					'js/swwt.min.js' : ['js/src/*.js', 'js/src/chargen/*.js', 'js/src/extras/*.js', 'js/src/creators/*.js'],
 				}
 			}
 		},
-
 		watch: {
 			styles: {
 				// Which files to watch (all .less files recursively in the less directory)
@@ -44,32 +42,12 @@ module.exports = function(grunt) {
 					nospawn: true
 				}
 			}
-		},
-
-		connect: {
-			default: {
-				options: {
-					hostname: 'localhost',
-					port: 9000,
-					livereload: true,
-					base: './_site',
-					open: { appName: 'chrome' }
-				}
-			}
-		},
-
-		jekyll: {
-			default: {
-			}
 		}
-
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-jekyll');
 
-	grunt.registerTask('default', ['jekyll','connect','watch']);
+	grunt.registerTask('default', ['watch']);
 };
