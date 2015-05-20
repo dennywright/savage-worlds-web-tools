@@ -1585,6 +1585,10 @@ function make_gear_available_list() {
 
 				html += "<tr>";
 				html += "<td>" + chargen_gear[gear_count].name + "</td>";
+				if( chargen_gear[gear_count].general == "Cyberware" ) {
+					html += "<td>" + chargen_gear[gear_count].limit + "</td>";
+					html += "<td>" + chargen_gear[gear_count].strain + "</td>";
+				}
 				if( typeof(chargen_gear[gear_count].cost) != "string" && chargen_gear[gear_count].cost <= current_character.current_funds) {
 					html += "<td>\$" + chargen_gear[gear_count].cost + "</td>";
 					html += "<td>";
